@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MJ Couture</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Styling */
+        .checkout-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="men_clothing.html">Men Clothing</a></li>
+                <li class="nav-item"><a class="nav-link" href="women_clothing.html">Women Clothing</a></li>
+                <li class="nav-item"><a class="nav-link" href="shopping_cart.html">Buy Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <div class="container mt-5">
+        <h1>Checkout</h1>
+        <hr>
+        <div class="row">
+            <!-- Order Summary -->
+            <div class="col-md-6">
+                <h3>Order Summary</h3>
+                <div id="order-summary">
+                    <!-- Order items will be dynamically added here -->
+                </div>
+                <h4 class="total-price">Total: $<span id="order-total">0.00</span></h4>
+            </div>
+
+            <!-- Checkout Form -->
+            <div class="col-md-6">
+                <div class="checkout-form">
+                    <h3>Shipping Information</h3>
+                    <form id="checkoutForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Shipping Address</label>
+                            <textarea class="form-control" id="address" rows="3" placeholder="Enter your shipping address" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>Follow us on:
+            <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+        </p>
+        <p>&copy; 2025 MJ Couture. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Checkout Functionality -->
+    <script>
+        // Retrieve cart items from localStorage
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // Function to render order summary
+        function renderOrderSummary() {
+            const orderSummaryContainer = document.getElementById("order-summary");
+            const orderTotalElement = document.getElementById("order-total");
+            let orderTotal = 0;
+
+            // Clear existing content
+            orderSummaryContainer.innerHTML = "";
+
+            // Render each cart item
+            cartItems.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                orderTotal += itemTotal;
+
+                const orderItemHTML = `
+                    <div class="cart-item">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5>${item.name}</h5>
+                                <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>$${itemTotal.toFixed(2)}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                orderSummaryContainer.innerHTML += orderItemHTML;
+            });
+
+            // Update order total
+            orderTotalElement.textContent = orderTotal.toFixed(2);
+        }
+
+        // Initial render
+        renderOrderSummary();
+    </script>
+</body>
+</html>

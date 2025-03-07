@@ -5,13 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Men Clothing - MJ Couture</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Fonts */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; /* Bold */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Hover effect for cards */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Link Styling */
+        .card-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .card-title a:hover {
+            color: #FF6F61; /* Coral Red */
+        }
+
+        /* Notification Styling */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="logo1">
-            MJ Couture
+            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -23,40 +68,177 @@
                 <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="men_clothing.html">Men Clothing</a></li>
                 <li class="nav-item"><a class="nav-link" href="women_clothing.html">Women Clothing</a></li>
-                <li class="nav-item"><a class="nav-link" href="shopping_cart.html">Buy Now</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shopping_cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="badge badge-pill badge-danger">0</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="container mt-5">
         <h1>Men Clothing</h1>
         <hr>
         <div class="row">
-            <div class="col-md-4">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                    <a href="product_detail.html">
+                        <img src="images/menjacketsuit1.png" class="card-img-top" alt="Men's Jacket Suit">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Product 1</h5>
-                        <p class="card-text">$20.00</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <h5 class="card-title"><a href="product_detail.html">Men's Jacket Suit</a></h5>
+                        <p class="card-text">$60.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(1, 'Men\'s Jacket Suit', 60.00, 'images/menjacketsuit1.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                    <a href="product_detail.html">
+                        <img src="images/mensshorts.png" class="card-img-top" alt="Men's Shorts">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Product 2</h5>
+                        <h5 class="card-title"><a href="product_detail.html">Men's Shorts</a></h5>
                         <p class="card-text">$25.00</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(2, 'Men\'s Shorts', 25.00, 'images/mensshorts.png')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="product_detail.html">
+                        <img src="images/mensshirt1.png" class="card-img-top" alt="Men's Long Shirt">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="product_detail.html">Men's Long Shirt</a></h5>
+                        <p class="card-text">$30.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(3, 'Men\'s Long Shirt', 30.00, 'images/mensshirt1.png')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="product_detail.html">
+                        <img src="images/shortsleevemenshirt.png" class="card-img-top" alt="Men's Short Sleeve Shirt">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="product_detail.html">Men's Short Sleeve Shirt</a></h5>
+                        <p class="card-text">$45.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(4, 'Men\'s Short Sleeve Shirt', 45.00, 'images/shortsleevemenshirt.png')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="product_detail.html">
+                        <img src="images/menshoodie.png" class="card-img-top" alt="Men's Hoodie">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="product_detail.html">Men's Hoodie</a></h5>
+                        <p class="card-text">$50.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(5, 'Men\'s Hoodie', 50.00, 'images/menshoodie.png')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="product_detail.html">
+                        <img src="images/menssneakers.png" class="card-img-top" alt="Men's Sneakers">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="product_detail.html">Men's Sneakers</a></h5>
+                        <p class="card-text">$70.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(6, 'Men\'s Sneakers', 70.00, 'images/menssneakers.png')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="product_detail.html">
+                        <img src="images/mensblazer.png" class="card-img-top" alt="Men's Blazer">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="product_detail.html">Men's Blazer</a></h5>
+                        <p class="card-text">$80.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(7, 'Men\'s Blazer', 80.00, 'images/mensblazer.png')">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <a href="product_detail.html">
+                        <img src="images/menswatch.png" class="card-img-top" alt="Men's Watch">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="product_detail.html">Men's Watch</a></h5>
+                        <p class="card-text">$100.00</p>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(8, 'Men\'s Watch', 100.00, 'images/menswatch.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-light text-center py-3">
+        <p>Follow us on:
+            <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+        </p>
         <p>&copy; 2025 MJ Couture. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Add to Cart Functionality -->
+    <script>
+        // Function to add an item to the cart
+        function addToCart(id, name, price, image) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const existingItem = cartItems.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({ id, name, price, image, quantity: 1 });
+            }
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            showNotification(`${name} added to cart!`);
+            updateCartCount();
+            setTimeout(() => {
+                window.location.href = "shopping_cart.html";
+            }, 1000);
+        }
+
+        // Function to show a notification
+        function showNotification(message) {
+            const notification = document.createElement("div");
+            notification.className = "notification";
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+
+        // Function to update the cart count
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById("cart-count").textContent = cartCount;
+        }
+
+        // Update cart count on page load
+        updateCartCount();
+    </script>
 </body>
 </html>

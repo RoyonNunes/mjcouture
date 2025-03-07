@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - MJ Couture</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Styling */
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+        }
+        .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="men_clothing.html">Men Clothing</a></li>
+                <li class="nav-item"><a class="nav-link" href="women_clothing.html">Women Clothing</a></li>
+                <li class="nav-item"><a class="nav-link" href="shopping_cart.html">Buy Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Shopping Cart Section -->
+    <div class="container mt-5">
+        <h1>Shopping Cart</h1>
+        <hr>
+        <div id="cart-items" class="mb-4">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+
+        <!-- Total Price -->
+        <div class="text-right">
+            <h3 class="total-price">Total: $<span id="total-price">0.00</span></h3>
+        </div>
+
+        <!-- Checkout Button -->
+        <div class="text-right mt-4">
+            <a href="checkout.html" class="btn btn-primary btn-lg">Proceed to Checkout</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>Follow us on:
+            <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+        </p>
+        <p>&copy; 2025 MJ Couture. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Cart Functionality -->
+    <script>
+        // Retrieve cart items from localStorage or initialize an empty array
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // Function to render cart items
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById("cart-items");
+            const totalPriceElement = document.getElementById("total-price");
+            let totalPrice = 0;
+
+            // Clear existing content
+            cartItemsContainer.innerHTML = "";
+
+            // Render each cart item
+            cartItems.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+
+                const cartItemHTML = `
+                    <div class="cart-item">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="${item.image}" alt="${item.name}" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>${item.name}</h5>
+                                <p>$${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-danger" onclick="removeItem(${item.id})">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += cartItemHTML;
+            });
+
+            // Update total price
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+
+        // Function to update item quantity
+        function updateQuantity(itemId, newQuantity) {
+            const item = cartItems.find(item => item.id === itemId);
+            if (item) {
+                item.quantity = parseInt(newQuantity);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                renderCartItems();
+            }
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(itemId) {
+            const itemIndex = cartItems.findIndex(item => item.id === itemId);
+            if (itemIndex !== -1) {
+                cartItems.splice(itemIndex, 1);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                renderCartItems();
+            }
+        }
+
+        // Initial render
+        renderCartItems();
+    </script>
+</body>
+</html>

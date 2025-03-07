@@ -5,13 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - MJ Couture</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Fonts */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; /* Bold */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Custom Styling */
+        .contact-info li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: #FF6F61; /* Coral Red */
+        }
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="logo1">
-            MJ Couture
+            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -28,20 +69,111 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="container mt-5">
         <h1>Contact Us</h1>
         <hr>
-        <p>For any inquiries, please contact us at:</p>
-        <ul>
-            <li>WhatsApp: +1 (876) 123-4567</li>
-            <li>Call: +1 (876) 765-4321</li>
-            <li>Email: mjcouturejm@gmail.com</li>
-            <li>Location: Shop 15 at 6 Hagley Park Rd. (Commerce Plaza) in Half Way Tree Kingston 10 Jamaica W.I.</li>
-        </ul>
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-md-6">
+                <h3>Get in Touch</h3>
+                <ul class="contact-info">
+                    <li><i class="fab fa-whatsapp"></i>WhatsApp: +1 (876) 123-4567</li>
+                    <li><i class="fas fa-phone"></i>Call: +1 (876) 765-4321</li>
+                    <li><i class="fas fa-envelope"></i>Email: mjcouturejm@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i>Location: Shop 15 at 6 Hagley Park Rd. (Commerce Plaza) in Half Way Tree Kingston 10 Jamaica W.I.</li>
+                </ul>
+                <h3>Follow Us</h3>
+                <p>
+                    <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+                </p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
+                            <div class="invalid-feedback">Please enter a message.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div class="success-message" id="successMessage">Your message has been sent successfully!</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-container mt-5">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.863147783943!2d-76.7926236847583!3d18.01209698761288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8edb3f8a8b9b9b9b%3A0x8edb3f8a8b9b9b9b!2sCommerce%20Plaza%2C%20Half%20Way%20Tree%2C%20Kingston%2C%20Jamaica!5e0!3m2!1sen!2sus!4v1633021234567!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- Call-to-Action (CTA) -->
+        <div class="text-center mt-5">
+            <h3>Explore Our Collection</h3>
+            <a href="men_clothing.html" class="btn btn-primary btn-lg">Shop Men's Clothing</a>
+            <a href="women_clothing.html" class="btn btn-primary btn-lg">Shop Women's Clothing</a>
+        </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-light text-center py-3">
-        <p>&copy; 2025 MJ Couture. All rights reserved.</p>
-  </footer>
+        <div class="container">
+            <h3>Subscribe to Our Newsletter</h3>
+            <form class="form-inline justify-content-center">
+                <input type="email" class="form-control mr-2" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <p class="mt-3">Follow us on:
+                <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+            </p>
+            <p>&copy; 2025 MJ Couture. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Validation and Success Message -->
+    <script>
+        (function () {
+            'use strict';
+            const form = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    successMessage.style.display = 'block';
+                    form.reset();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
 </body>
 </html>

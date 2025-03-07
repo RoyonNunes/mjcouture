@@ -3,16 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MJ Couture - Shop the latest trends in men's and women's clothing. Affordable, stylish, and high-quality fashion for everyone.">
+    <meta name="keywords" content="MJ Couture, men's clothing, women's clothing, fashion, online shopping">
+    <meta name="author" content="MJ Couture">
     <title>MJ Couture - Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Fonts */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; /* Bold */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Hover effect for cards */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back-to-top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+
+        /* Loading spinner */
+        #loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="logo1">
-
+            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -26,6 +75,10 @@
                 <li class="nav-item"><a class="nav-link" href="women_clothing.html">Women Clothing</a></li>
                 <li class="nav-item"><a class="nav-link" href="shopping_cart.html">Buy Now</a></li>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -33,7 +86,7 @@
     <div class="jumbotron text-center">
         <h1>Welcome to MJ Couture</h1>
         <p class="lead">Dress Bold, Shop Easy - MJ Couture Style Awaits!</p>
-        <img src="images/1.png" class="img-fluid" alt="1">
+        <img src="images/1.png" class="img-fluid" alt="MJ Couture Hero Image">
     </div>
 
     <!-- Featured Products Section -->
@@ -43,33 +96,39 @@
             <!-- Product 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/menshirt1.png" class="card-img-top" alt="Product 1">
+                    <a href="product_detail.html">
+                        <img src="images/menshirt1.png" class="card-img-top" alt="Men's Shirt">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Men's Shirt</h5>
+                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Men's Shirt</a></h5>
                         <p class="card-text">$25.00USD <span class="text-muted"><del>$30.00USD</del></span></p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-success" onclick="addToCart(1, 'Men\'s Shirt', 25.00, 'images/menshirt1.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/womendress1.png" class="card-img-top" alt="womendress1">
+                    <a href="product_detail.html">
+                        <img src="images/womendress1.png" class="card-img-top" alt="Elegant Women's Dress">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Elegant Women's Dress</h5>
+                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Elegant Women's Dress</a></h5>
                         <p class="card-text">$40.00USD <span class="text-muted"><del>$50.00USD</del></span></p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-success" onclick="addToCart(2, 'Elegant Women\'s Dress', 40.00, 'images/womendress1.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/menpants1.png" class="card-img-top" alt="menpants1">
+                    <a href="product_detail.html">
+                        <img src="images/menpants1.png" class="card-img-top" alt="Men's Pants">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Men's Pants</h5>
+                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Men's Pants</a></h5>
                         <p class="card-text">$35.00USD <span class="text-muted"><del>$45.00USD</del></span></p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-success" onclick="addToCart(3, 'Men\'s Pants', 35.00, 'images/menpants1.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -83,47 +142,115 @@
             <!-- Sale Product 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/womenblouse1.png" class="card-img-top" alt="womenblouse1">
+                    <a href="product_detail.html">
+                        <img src="images/womenblouse1.png" class="card-img-top" alt="Women's Blouse">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Women's Blouse</h5>
+                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Women's Blouse</a></h5>
                         <p class="card-text">$15.00USD <span class="text-danger"><del>$25.00USD</del></span></p>
-                        <a href="#" class="btn btn-danger">Add to Cart</a>
+                        <a href="#" class="btn btn-danger" onclick="addToCart(4, 'Women\'s Blouse', 15.00, 'images/womenblouse1.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Sale Product 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/mensblazer.png" class="card-img-top" alt="mensblazer">
+                    <a href="product_detail.html">
+                        <img src="images/mensblazer.png" class="card-img-top" alt="Men's Blazer">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Men's Blazer</h5>
+                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Men's Blazer</a></h5>
                         <p class="card-text">$50.00USD <span class="text-danger"><del>$70.00USD</del></span></p>
-                        <a href="#" class="btn btn-danger">Add to Cart</a>
+                        <a href="#" class="btn btn-danger" onclick="addToCart(5, 'Men\'s Blazer', 50.00, 'images/mensblazer.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Sale Product 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="images/jamaicadaydress.png" class="card-img-top" alt="jamaicadaydress">
+                    <a href="product_detail.html">
+                        <img src="images/jamaicadaydress.png" class="card-img-top" alt="Jamaica Day Women's Dress">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title">Jamaica Day Women's Dress</h5>
+                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Jamaica Day Women's Dress</a></h5>
                         <p class="card-text">$30.00 <span class="text-danger"><del>$45.00</del></span></p>
-                        <a href="#" class="btn btn-danger">Add to Cart</a>
+                        <a href="#" class="btn btn-danger" onclick="addToCart(6, 'Jamaica Day Women\'s Dress', 30.00, 'images/jamaicadaydress.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Newsletter Signup Section -->
+    <div class="container mt-5">
+        <h3 class="text-center">Subscribe to Our Newsletter</h3>
+        <form class="form-inline justify-content-center">
+            <input type="email" class="form-control mr-2" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-light text-center py-3">
         <p>Follow us on:
-            <a href="https://www.instagram.com" class="btn btn-outline-dark">Instagram</a>
-            <a href="https://www.facebook.com" class="btn btn-outline-dark">Facebook</a>
-            <a href="https://www.twitter.com" class="btn btn-outline-dark">Twitter</a>
+            <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
         </p>
         <p>&copy; 2025 MJ Couture. All rights reserved.</p>
     </footer>
+
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" class="btn btn-primary btn-lg back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Hide loading spinner after page loads
+        window.addEventListener("load", function() {
+            document.getElementById("loading-spinner").style.display = "none";
+        });
+
+        // Back-to-top button
+        document.addEventListener("scroll", function() {
+            var backToTopButton = document.getElementById("back-to-top");
+            if (window.pageYOffset > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+
+        document.getElementById("back-to-top").addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Add to Cart Functionality
+        function addToCart(id, name, price, image) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            // Check if the item already exists in the cart
+            const existingItem = cartItems.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if item exists
+            } else {
+                // Add new item to the cart
+                cartItems.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: 1,
+                    image: image
+                });
+            }
+
+            // Save updated cart to localStorage
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+            // Redirect to the shopping cart page
+            window.location.href = "shopping_cart.html";
+        }
+    </script>
 </body>
 </html>

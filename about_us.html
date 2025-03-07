@@ -5,13 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - MJ Couture</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Fonts */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; /* Bold */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background: url('images/about-hero.jpg') no-repeat center center/cover;
+            color: rgb(2, 49, 255);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+
+        /* Team Section Styling */
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="logo1">
-            MJ Couture
+            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -28,15 +65,82 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <h1>About MJ Couture</h1>
-        <hr>
-        <p>Welcome to MJ Couture, where style meets heart in the vibrant spirit of Kingston, Jamaica. Founded in 2019 by Mary Jane, a self-taught designer with a lifelong passion for creating, our small-scale fashion business specializes in clothing and accessories that make every occasion unforgettable.</p>
-        <p>Our mission is to provide the best quality clothing to our customers. We believe that everyone should have access to the best quality clothing at affordable prices. We are committed to providing the best customer service and we are always looking for ways to improve our products and services.</p>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <h1>About MJ Couture</h1>
+            <p>Discover the story behind our passion for fashion and quality.</p>
+        </div>
     </div>
 
+    <!-- About Section -->
+    <div class="container mt-5">
+        <h2>Our Story</h2>
+        <hr>
+        <p>Welcome to MJ Couture, where style meets heart in the vibrant spirit of Kingston, Jamaica. Founded in 2019 by Mary Jane, a self-taught designer with a lifelong passion for creating, our small-scale fashion business specializes in clothing and accessories that make every occasion unforgettable.</p>
+        <p>Our mission is to provide the best quality clothing to our customers. We believe that everyone should have access to stylish, high-quality clothing at affordable prices. We are committed to exceptional customer service and continuously strive to improve our products and services.</p>
+    </div>
+
+    <!-- Mission and Vision Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Our Mission</h2>
+                <hr>
+                <p>To empower individuals to express their unique style through high-quality, affordable fashion that celebrates creativity and individuality.</p>
+            </div>
+            <div class="col-md-6">
+                <h2>Our Vision</h2>
+                <hr>
+                <p>To become a globally recognized brand that inspires confidence and self-expression through innovative and sustainable fashion.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="container mt-5">
+        <h2>Meet Our Team</h2>
+        <hr>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="images/maryjane.png" alt="Mary Jane">
+                    <h4>Mary Jane</h4>
+                    <p>Founder & Lead Designer</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="images/teammember.png" alt="Team Member 1">
+                    <h4>Sarah Adams</h4>
+                    <p>Marketing Manager</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="images/teammember2.png" alt="Team Member 2">
+                    <h4>John Brown</h4>
+                    <p>Customer Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Section -->
+    <div class="container mt-5 text-center">
+        <h2>Ready to Explore Our Collection?</h2>
+        <a href="men_clothing.html" class="btn btn-primary btn-lg">Shop Men's Clothing</a>
+        <a href="women_clothing.html" class="btn btn-primary btn-lg">Shop Women's Clothing</a>
+    </div>
+
+    <!-- Footer -->
     <footer class="bg-light text-center py-3">
+        <p>Follow us on:
+            <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+        </p>
         <p>&copy; 2025 MJ Couture. All rights reserved.</p>
-</footer>
+    </footer>
 </body>
 </html>
