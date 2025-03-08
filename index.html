@@ -32,6 +32,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        /* Product image hover effect */
+        .card-img-top {
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-img-top {
+            transform: scale(1.1); /* Enlarge image on hover */
+        }
+
         /* Back-to-top button */
         .back-to-top {
             position: fixed;
@@ -61,7 +69,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
+            <img src="images/logo1.png" width="200" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -75,10 +83,6 @@
                 <li class="nav-item"><a class="nav-link" href="women_clothing.html">Women Clothing</a></li>
                 <li class="nav-item"><a class="nav-link" href="shopping_cart.html">Buy Now</a></li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>
 
@@ -96,11 +100,9 @@
             <!-- Product 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/menshirt1.png" class="card-img-top" alt="Men's Shirt">
-                    </a>
+                    <img src="images/menshirt1.png" class="card-img-top" alt="Men's Shirt">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Men's Shirt</a></h5>
+                        <h5 class="card-title">Men's Shirt</h5>
                         <p class="card-text">$25.00USD <span class="text-muted"><del>$30.00USD</del></span></p>
                         <a href="#" class="btn btn-success" onclick="addToCart(1, 'Men\'s Shirt', 25.00, 'images/menshirt1.png')">Add to Cart</a>
                     </div>
@@ -109,11 +111,9 @@
             <!-- Product 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/womendress1.png" class="card-img-top" alt="Elegant Women's Dress">
-                    </a>
+                    <img src="images/womendress1.png" class="card-img-top" alt="Elegant Women's Dress">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Elegant Women's Dress</a></h5>
+                        <h5 class="card-title">Elegant Women's Dress</h5>
                         <p class="card-text">$40.00USD <span class="text-muted"><del>$50.00USD</del></span></p>
                         <a href="#" class="btn btn-success" onclick="addToCart(2, 'Elegant Women\'s Dress', 40.00, 'images/womendress1.png')">Add to Cart</a>
                     </div>
@@ -122,11 +122,9 @@
             <!-- Product 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/menpants1.png" class="card-img-top" alt="Men's Pants">
-                    </a>
+                    <img src="images/menpants1.png" class="card-img-top" alt="Men's Pants">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Men's Pants</a></h5>
+                        <h5 class="card-title">Men's Pants</h5>
                         <p class="card-text">$35.00USD <span class="text-muted"><del>$45.00USD</del></span></p>
                         <a href="#" class="btn btn-success" onclick="addToCart(3, 'Men\'s Pants', 35.00, 'images/menpants1.png')">Add to Cart</a>
                     </div>
@@ -142,11 +140,9 @@
             <!-- Sale Product 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/womenblouse1.png" class="card-img-top" alt="Women's Blouse">
-                    </a>
+                    <img src="images/womenblouse1.png" class="card-img-top" alt="Women's Blouse">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Women's Blouse</a></h5>
+                        <h5 class="card-title">Women's Blouse</h5>
                         <p class="card-text">$15.00USD <span class="text-danger"><del>$25.00USD</del></span></p>
                         <a href="#" class="btn btn-danger" onclick="addToCart(4, 'Women\'s Blouse', 15.00, 'images/womenblouse1.png')">Add to Cart</a>
                     </div>
@@ -155,11 +151,9 @@
             <!-- Sale Product 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/mensblazer.png" class="card-img-top" alt="Men's Blazer">
-                    </a>
+                    <img src="images/mensblazer.png" class="card-img-top" alt="Men's Blazer">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Men's Blazer</a></h5>
+                        <h5 class="card-title">Men's Blazer</h5>
                         <p class="card-text">$50.00USD <span class="text-danger"><del>$70.00USD</del></span></p>
                         <a href="#" class="btn btn-danger" onclick="addToCart(5, 'Men\'s Blazer', 50.00, 'images/mensblazer.png')">Add to Cart</a>
                     </div>
@@ -168,26 +162,15 @@
             <!-- Sale Product 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/jamaicadaydress.png" class="card-img-top" alt="Jamaica Day Women's Dress">
-                    </a>
+                    <img src="images/jamaicadaydress.png" class="card-img-top" alt="Jamaica Day Women's Dress">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html" class="text-dark">Jamaica Day Women's Dress</a></h5>
+                        <h5 class="card-title">Jamaica Day Women's Dress</h5>
                         <p class="card-text">$30.00 <span class="text-danger"><del>$45.00</del></span></p>
                         <a href="#" class="btn btn-danger" onclick="addToCart(6, 'Jamaica Day Women\'s Dress', 30.00, 'images/jamaicadaydress.png')">Add to Cart</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Newsletter Signup Section -->
-    <div class="container mt-5">
-        <h3 class="text-center">Subscribe to Our Newsletter</h3>
-        <form class="form-inline justify-content-center">
-            <input type="email" class="form-control mr-2" placeholder="Enter your email" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
     </div>
 
     <!-- Footer -->

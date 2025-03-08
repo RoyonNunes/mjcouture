@@ -29,13 +29,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Link Styling */
-        .card-title a {
-            color: #333;
-            text-decoration: none;
+        /* Product image hover effect */
+        .card-img-top {
+            transition: transform 0.3s ease;
         }
-        .card-title a:hover {
-            color: #FF6F61; /* Coral Red */
+        .card:hover .card-img-top {
+            transform: scale(1.1); /* Enlarge image on hover */
         }
 
         /* Notification Styling */
@@ -50,13 +49,24 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+
+        /* Size and Color Dropdowns */
+        .size-color-select {
+            margin-bottom: 10px;
+        }
+        .size-color-select select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
+            <img src="images/logo1.png" width="200" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -80,110 +90,162 @@
 
     <!-- Main Content -->
     <div class="container mt-5">
-        <h1>Men Clothing</h1>
+        <h1 class="text-center mt-4">Men Clothing</h1>
         <hr>
         <div class="row">
             <!-- Product 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/menjacketsuit1.png" class="card-img-top" alt="Men's Jacket Suit">
-                    </a>
+                    <img src="images/menjacketsuit1.png" class="card-img-top" alt="Men's Jacket Suit">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Jacket Suit</a></h5>
+                        <h5 class="card-title">Men's Jacket Suit</h5>
                         <p class="card-text">$60.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(1, 'Men\'s Jacket Suit', 60.00, 'images/menjacketsuit1.png')">Add to Cart</a>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="Black">Black</option>
+                                <option value="Navy">Navy</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(1, 'Men\'s Jacket Suit', 60.00, 'images/menjacketsuit1.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/mensshorts.png" class="card-img-top" alt="Men's Shorts">
-                    </a>
+                    <img src="images/mensshorts.png" class="card-img-top" alt="Men's Shorts">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Shorts</a></h5>
+                        <h5 class="card-title">Men's Shorts</h5>
                         <p class="card-text">$25.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(2, 'Men\'s Shorts', 25.00, 'images/mensshorts.png')">Add to Cart</a>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Black">Black</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(2, 'Men\'s Shorts', 25.00, 'images/mensshorts.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/mensshirt1.png" class="card-img-top" alt="Men's Long Shirt">
-                    </a>
+                    <img src="images/menlongsleeve.png" class="card-img-top" alt="Men's Long Sleeve Shirt">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Long Shirt</a></h5>
+                        <h5 class="card-title">Men's Long Sleeve Shirt</h5>
                         <p class="card-text">$30.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(3, 'Men\'s Long Shirt', 30.00, 'images/mensshirt1.png')">Add to Cart</a>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="White">White</option>
+                                <option value="Blue">Blue</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(3, 'Men\'s Long Sleeve Shirt', 30.00, 'images/menlongsleeve.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 4 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/shortsleevemenshirt.png" class="card-img-top" alt="Men's Short Sleeve Shirt">
-                    </a>
+                    <img src="images/shortsleevemenshirt.png" class="card-img-top" alt="Men's Short Sleeve Shirt">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Short Sleeve Shirt</a></h5>
+                        <h5 class="card-title">Men's Short Sleeve Shirt</h5>
                         <p class="card-text">$45.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(4, 'Men\'s Short Sleeve Shirt', 45.00, 'images/shortsleevemenshirt.png')">Add to Cart</a>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="White">White</option>
+                                <option value="Blue">Blue</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(4, 'Men\'s Short Sleeve Shirt', 45.00, 'images/shortsleevemenshirt.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 5 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/menshoodie.png" class="card-img-top" alt="Men's Hoodie">
-                    </a>
+                    <img src="images/menjamaicaday.png" class="card-img-top" alt="Men's Jamaica Day Outfit">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Hoodie</a></h5>
+                        <h5 class="card-title">Men's Jamaica Day Outfit</h5>
                         <p class="card-text">$50.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(5, 'Men\'s Hoodie', 50.00, 'images/menshoodie.png')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/menssneakers.png" class="card-img-top" alt="Men's Sneakers">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Sneakers</a></h5>
-                        <p class="card-text">$70.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(6, 'Men\'s Sneakers', 70.00, 'images/menssneakers.png')">Add to Cart</a>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="Yellow">Yellow</option>
+                                <option value="Green">Green</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(5, 'Men\'s Jamaica Day Outfit', 50.00, 'images/menjamaicaday.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <!-- Product 7 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/mensblazer.png" class="card-img-top" alt="Men's Blazer">
-                    </a>
+                    <img src="images/mensblazer.png" class="card-img-top" alt="Men's Blazer">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Blazer</a></h5>
+                        <h5 class="card-title">Men's Blazer</h5>
                         <p class="card-text">$80.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(7, 'Men\'s Blazer', 80.00, 'images/mensblazer.png')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 8 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/menswatch.png" class="card-img-top" alt="Men's Watch">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Men's Watch</a></h5>
-                        <p class="card-text">$100.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(8, 'Men\'s Watch', 100.00, 'images/menswatch.png')">Add to Cart</a>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="Black">Black</option>
+                                <option value="Navy">Navy</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(7, 'Men\'s Blazer', 80.00, 'images/mensblazer.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -203,16 +265,35 @@
     <!-- JavaScript for Add to Cart Functionality -->
     <script>
         // Function to add an item to the cart
-        function addToCart(id, name, price, image) {
+        function addToCart(id, name, price, image, button) {
+            const card = button.closest('.card');
+            const size = card.querySelector('.size-select').value;
+            const color = card.querySelector('.color-select').value;
+
+            if (!size || !color) {
+                alert("Please select size and color before adding to cart.");
+                return;
+            }
+
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-            const existingItem = cartItems.find(item => item.id === id);
+            const existingItem = cartItems.find(item => item.id === id && item.size === size && item.color === color);
+
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
-                cartItems.push({ id, name, price, image, quantity: 1 });
+                cartItems.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    size: size,
+                    color: color,
+                    quantity: 1
+                });
             }
+
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
-            showNotification(`${name} added to cart!`);
+            showNotification(`${name} (Size: ${size}, Color: ${color}) added to cart!`);
             updateCartCount();
             setTimeout(() => {
                 window.location.href = "shopping_cart.html";

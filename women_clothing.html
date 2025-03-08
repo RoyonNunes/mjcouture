@@ -13,7 +13,7 @@
         /* Custom Fonts */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
-            font-weight: 700; /* Bold */
+            font-weight: 700;
         }
 
         body {
@@ -29,13 +29,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Link Styling */
-        .card-title a {
-            color: #333;
-            text-decoration: none;
+        /* Product image hover effect */
+        .card-img-top {
+            transition: transform 0.3s ease;
         }
-        .card-title a:hover {
-            color: #FF6F61; /* Coral Red */
+        .card:hover .card-img-top {
+            transform: scale(1.1);
         }
 
         /* Notification Styling */
@@ -50,13 +49,24 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+
+        /* Size and Color Dropdowns */
+        .size-color-select {
+            margin-bottom: 10px;
+        }
+        .size-color-select select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
-            <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
+            <img src="images/logo1.png" width="200" alt="MJ Couture Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -80,20 +90,33 @@
 
     <!-- Main Content -->
     <div class="container mt-5">
-        <h1>Women Clothing</h1>
+        <h1 class="text-center mt-4">Women Clothing</h1>
         <hr>
         <div class="row">
             <!-- Product 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
-                    </a>
+                    <img src="images/womendress1.png" class="card-img-top" alt="womendress1">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 1</a></h5>
+                        <h5 class="card-title">Elegant Women's Dress</h5>
                         <p class="card-text">A stylish and comfortable dress perfect for summer.</p>
-                        <p class="card-text">$20.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(1, 'Product 1', 20.00, 'images/product1.jpg')">Add to Cart</a>
+                        <p class="card-text">$40.00</p>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="Red">Red</option>
+                                <option value="Black">Black</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(1, 'Elegant Womens Dress', 20.00, 'images/womendress1.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -101,14 +124,27 @@
             <!-- Product 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
-                    </a>
+                    <img src="images/chicdress.png" class="card-img-top" alt="chicdress">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 2</a></h5>
-                        <p class="card-text">An elegant evening gown for special occasions.</p>
-                        <p class="card-text">$45.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(2, 'Product 2', 45.00, 'images/product2.jpg')">Add to Cart</a>
+                        <h5 class="card-title">Women's Dress</h5>
+                        <p class="card-text">An elegant evening dress for special occasions.</p>
+                        <p class="card-text">$15.00</p>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Black">Black</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(2, 'Womens Dress', 45.00, 'images/chicdress.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -116,89 +152,27 @@
             <!-- Product 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
-                    </a>
+                    <img src="images/womenblouse1.png" class="card-img-top" alt="womenblouse1">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 3</a></h5>
-                        <p class="card-text">A cozy winter sweater to keep you warm.</p>
-                        <p class="card-text">$35.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(3, 'Product 3', 35.00, 'images/product3.jpg')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product4.jpg" class="card-img-top" alt="Product 4">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 4</a></h5>
-                        <p class="card-text">A chic blouse for a casual yet stylish look.</p>
-                        <p class="card-text">$25.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(4, 'Product 4', 25.00, 'images/product4.jpg')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product5.jpg" class="card-img-top" alt="Product 5">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 5</a></h5>
-                        <p class="card-text">A trendy jumpsuit for a modern outfit.</p>
-                        <p class="card-text">$50.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(5, 'Product 5', 50.00, 'images/product5.jpg')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product6.jpg" class="card-img-top" alt="Product 6">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 6</a></h5>
-                        <p class="card-text">A versatile skirt for any occasion.</p>
-                        <p class="card-text">$30.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(6, 'Product 6', 30.00, 'images/product6.jpg')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 7 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product7.jpg" class="card-img-top" alt="Product 7">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 7</a></h5>
-                        <p class="card-text">A comfortable and stylish pair of jeans.</p>
-                        <p class="card-text">$40.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(7, 'Product 7', 40.00, 'images/product7.jpg')">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 8 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <a href="product_detail.html">
-                        <img src="images/product8.jpg" class="card-img-top" alt="Product 8">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="product_detail.html">Product 8</a></h5>
-                        <p class="card-text">A lightweight jacket for spring and fall.</p>
-                        <p class="card-text">$55.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(8, 'Product 8', 55.00, 'images/product8.jpg')">Add to Cart</a>
+                        <h5 class="card-title">Blouse</h5>
+                        <p class="card-text">A chic blouse for casual or formal wear.</p>
+                        <p class="card-text">$15.00</p>
+                        <!-- Size and Color Selection -->
+                        <div class="size-color-select">
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                            </select>
+                        </div>
+                        <div class="size-color-select">
+                            <select class="color-select">
+                                <option value="">Select Color</option>
+                                <option value="White">White</option>
+                                <option value="Black">Black</option>
+                            </select>
+                        </div>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(3, 'Blouse', 35.00, 'images/womenblouse1.png', this)">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -218,16 +192,35 @@
     <!-- JavaScript for Cart Functionality -->
     <script>
         // Function to add an item to the cart
-        function addToCart(id, name, price, image) {
+        function addToCart(id, name, price, image, button) {
+            const card = button.closest('.card');
+            const size = card.querySelector('.size-select').value;
+            const color = card.querySelector('.color-select').value;
+
+            if (!size || !color) {
+                alert("Please select size and color before adding to cart.");
+                return;
+            }
+
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-            const existingItem = cartItems.find(item => item.id === id);
+            const existingItem = cartItems.find(item => item.id === id && item.size === size && item.color === color);
+
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
-                cartItems.push({ id, name, price, image, quantity: 1 });
+                cartItems.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    size: size,
+                    color: color,
+                    quantity: 1
+                });
             }
+
             localStorage.setItem("cartItems", JSON.stringify(cartItems));
-            showNotification(`${name} added to cart!`);
+            showNotification(`${name} (Size: ${size}, Color: ${color}) added to cart!`);
             updateCartCount();
             setTimeout(() => {
                 window.location.href = "shopping_cart.html";
