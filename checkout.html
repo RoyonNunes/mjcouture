@@ -3,21 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - MJ Couture</title>
+    <title>Transaction in Process - MJ Couture</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Custom Styling */
-        .checkout-form {
+        body {
             background-color: #f8f9fa;
-            padding: 20px;
+        }
+        .processing-container {
+            background-color: white;
             border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .processing-icon {
+            font-size: 4rem;
+            color: #007bff;
+            margin-bottom: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .order-details {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .progress-bar {
+            height: 5px;
+            background-color: #e9ecef;
+            margin: 30px 0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            width: 0%;
+            background-color: #007bff;
+            animation: progress 3s ease-in-out infinite;
+        }
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar (same as other pages) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
             <img src="images/logo1.png" width="100" alt="MJ Couture Logo">
@@ -37,45 +77,36 @@
         </div>
     </nav>
 
-    <!-- Checkout Section -->
-    <div class="container mt-5">
-        <h1>Checkout</h1>
-        <hr>
-        <div class="row">
-            <!-- Order Summary -->
-            <div class="col-md-6">
-                <h3>Order Summary</h3>
-                <div id="order-summary">
-                    <!-- Order items will be dynamically added here -->
-                </div>
-                <h4 class="total-price">Total: $<span id="order-total">0.00</span></h4>
+    <!-- Processing Content -->
+    <div class="container">
+        <div class="processing-container">
+            <div class="processing-icon">
+                <i class="fas fa-circle-notch"></i>
             </div>
-
-            <!-- Checkout Form -->
-            <div class="col-md-6">
-                <div class="checkout-form">
-                    <h3>Shipping Information</h3>
-                    <form id="checkoutForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Shipping Address</label>
-                            <textarea class="form-control" id="address" rows="3" placeholder="Enter your shipping address" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Place Order</button>
-                    </form>
+            <h2>Your Transaction is Being Processed</h2>
+            <p>Please wait while we complete your purchase. This may take a few moments.</p>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            
+            <div class="order-details">
+                <h5>Order Summary</h5>
+                <div id="order-summary">
+                    <!-- Order details will be dynamically inserted here -->
                 </div>
+                <hr>
+                <p><strong>Total: $<span id="order-total">0.00</span></strong></p>
+            </div>
+            
+            <div class="mt-4">
+                <p>You will receive a confirmation email shortly.</p>
+                <a href="index.html" class="btn btn-primary mt-3">Back to Home</a>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (same as other pages) -->
     <footer class="bg-light text-center py-3">
         <p>Follow us on:
             <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
@@ -85,47 +116,56 @@
         <p>&copy; 2025 MJ Couture. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Checkout Functionality -->
     <script>
-        // Retrieve cart items from localStorage
-        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-        // Function to render order summary
-        function renderOrderSummary() {
-            const orderSummaryContainer = document.getElementById("order-summary");
-            const orderTotalElement = document.getElementById("order-total");
-            let orderTotal = 0;
-
-            // Clear existing content
-            orderSummaryContainer.innerHTML = "";
-
-            // Render each cart item
+        // Display the order summary from the cart
+        document.addEventListener("DOMContentLoaded", function() {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const orderSummary = document.getElementById("order-summary");
+            const orderTotal = document.getElementById("order-total");
+            let total = 0;
+            
             cartItems.forEach(item => {
                 const itemTotal = item.price * item.quantity;
-                orderTotal += itemTotal;
-
-                const orderItemHTML = `
-                    <div class="cart-item">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h5>${item.name}</h5>
-                                <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <p>$${itemTotal.toFixed(2)}</p>
-                            </div>
-                        </div>
-                    </div>
+                total += itemTotal;
+                
+                const itemElement = document.createElement("div");
+                itemElement.className = "mb-2";
+                itemElement.innerHTML = `
+                    <p>
+                        ${item.quantity} x ${item.name} (${item.size}, ${item.color}) - 
+                        $${itemTotal.toFixed(2)}
+                    </p>
                 `;
-                orderSummaryContainer.innerHTML += orderItemHTML;
+                orderSummary.appendChild(itemElement);
             });
-
-            // Update order total
-            orderTotalElement.textContent = orderTotal.toFixed(2);
-        }
-
-        // Initial render
-        renderOrderSummary();
+            
+            orderTotal.textContent = total.toFixed(2);
+            
+            // Simulate processing completion after 5 seconds
+            setTimeout(function() {
+                // In a real application, you would redirect to a confirmation page
+                // window.location.href = "order-confirmation.html";
+                
+                // For this demo, we'll just show a message
+                const processingContainer = document.querySelector(".processing-container");
+                const processingIcon = document.querySelector(".processing-icon");
+                
+                processingIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                processingIcon.style.animation = "none";
+                processingIcon.style.color = "#28a745";
+                
+                const progressBar = document.querySelector(".progress-bar");
+                progressBar.style.display = "none";
+                
+                const message = document.createElement("div");
+                message.className = "alert alert-success mt-3";
+                message.innerHTML = "Transaction completed successfully!";
+                processingContainer.insertBefore(message, processingContainer.lastElementChild);
+                
+                // Clear the cart after successful transaction
+                localStorage.removeItem("cartItems");
+            }, 5000);
+        });
     </script>
 </body>
 </html>
