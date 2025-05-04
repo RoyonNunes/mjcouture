@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrities wearing MJ Couture - See your favorite stars rocking our stylish designs">
+    <title>Celebrities Wearing MJ Couture</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Consistent with your brand styling */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .celeb-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        .celeb-card {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .celeb-card:hover {
+            transform: translateY(-10px);
+        }
+        .celeb-img {
+            position: relative;
+            overflow: hidden;
+        }
+        .celeb-img img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: auto;
+        }
+        .celeb-card:hover .celeb-img img {
+            transform: scale(1.05);
+        }
+        .celeb-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 15px;
+            font-size: 14px;
+            z-index: 2;
+        }
+        .celeb-info {
+            padding: 20px;
+            background-color: white;
+        }
+        .celeb-quote {
+            font-style: italic;
+            color: #666;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        .celeb-quote:before {
+            content: '"';
+            font-size: 50px;
+            position: absolute;
+            left: -15px;
+            top: -15px;
+            color: #eee;
+            z-index: 0;
+        }
+        .celeb-name {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .celeb-title {
+            color: #888;
+            font-size: 14px;
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #333;
+            margin: 20px auto 0;
+        }
+        .brand-watermark {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 120px;
+            font-weight: bold;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (consistent with your main site) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo1.png" width="200" alt="MJ Couture Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="men_clothing.html">Men Clothing</a></li>
+                <li class="nav-item"><a class="nav-link" href="women_clothing.html">Women Clothing</a></li>
+                <li class="nav-item"><a class="nav-link active" href="celebrities_blog.html">Celebrities</a></li>
+                <li class="nav-item"><a class="nav-link" href="shopping_cart.html">Buy Now</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron jumbotron-fluid text-center bg-dark text-white" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/celeb-bg.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <h1 class="display-4">Celebrities Wearing MJ Couture</h1>
+            <p class="lead">See how stars are styling our collections on red carpets and beyond</p>
+        </div>
+    </div>
+
+    <!-- Celebrities Section -->
+    <div class="container-fluid celeb-section">
+        <div class="container">
+            <h2 class="section-title">Spotlight on Stars</h2>
+            
+            <div class="row">
+                <!-- Celebrity 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="celeb-card">
+                        <div class="celeb-img">
+                            <img src="images/celebrity1.jpg" alt="Beyoncé in MJ Couture">
+                            <div class="celeb-badge">Grammys 2024</div>
+                        </div>
+                        <div class="celeb-info">
+                            <h3 class="celeb-name">Beyoncé</h3>
+                            <p class="celeb-title">Grammy Award Winner</p>
+                            <p class="celeb-quote">"MJ Couture makes me feel powerful and elegant at the same time. This is my go-to brand for red carpet moments."</p>
+                            <a href="women_clothing.html" class="btn btn-outline-dark">Shop This Look</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Celebrity 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="celeb-card">
+                        <div class="celeb-img">
+                            <img src="images/celebrity2.jpg" alt="Idris Elba in MJ Couture">
+                            <div class="celeb-badge">Oscars 2024</div>
+                        </div>
+                        <div class="celeb-info">
+                            <h3 class="celeb-name">Idris Elba</h3>
+                            <p class="celeb-title">Actor & Producer</p>
+                            <p class="celeb-quote">"The craftsmanship of MJ Couture suits is unmatched. I always get compliments when I wear them to major events."</p>
+                            <a href="men_clothing.html" class="btn btn-outline-dark">Shop This Look</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Celebrity 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="celeb-card">
+                        <div class="celeb-img">
+                            <img src="images/celebrity3.jpg" alt="Lupita Nyong'o in MJ Couture">
+                            <div class="celeb-badge">Cannes 2023</div>
+                        </div>
+                        <div class="celeb-info">
+                            <h3 class="celeb-name">Lupita Nyong'o</h3>
+                            <p class="celeb-title">Academy Award Winner</p>
+                            <p class="celeb-quote">"The vibrant colors and perfect fit of MJ Couture dresses make them stand out on any red carpet."</p>
+                            <a href="women_clothing.html" class="btn btn-outline-dark">Shop This Look</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Celebrity 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="celeb-card">
+                        <div class="celeb-img">
+                            <img src="images/celebrity4.jpg" alt="Michael B. Jordan in MJ Couture">
+                            <div class="celeb-badge">Met Gala 2024</div>
+                        </div>
+                        <div class="celeb-info">
+                            <h3 class="celeb-name">Michael B. Jordan</h3>
+                            <p class="celeb-title">Actor & Director</p>
+                            <p class="celeb-quote">"When I need to make a statement, MJ Couture is my first choice. Their designs blend modern and classic perfectly."</p>
+                            <a href="men_clothing.html" class="btn btn-outline-dark">Shop This Look</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Celebrity 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="celeb-card">
+                        <div class="celeb-img">
+                            <img src="images/celebrity5.jpg" alt="Zendaya in MJ Couture">
+                            <div class="celeb-badge">Emmys 2023</div>
+                        </div>
+                        <div class="celeb-info">
+                            <h3 class="celeb-name">Zendaya</h3>
+                            <p class="celeb-title">Actress & Style Icon</p>
+                            <p class="celeb-quote">"MJ Couture understands how to make clothes that are both fashion-forward and comfortable to wear all night."</p>
+                            <a href="women_clothing.html" class="btn btn-outline-dark">Shop This Look</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Celebrity 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="celeb-card">
+                        <div class="celeb-img">
+                            <img src="images/celebrity6.jpg" alt="Trevor Noah in MJ Couture">
+                            <div class="celeb-badge">Golden Globes 2024</div>
+                        </div>
+                        <div class="celeb-info">
+                            <h3 class="celeb-name">Trevor Noah</h3>
+                            <p class="celeb-title">Comedian & TV Host</p>
+                            <p class="celeb-quote">"For my hosting gigs, I need clothes that move with me. MJ Couture delivers style without sacrificing comfort."</p>
+                            <a href="men_clothing.html" class="btn btn-outline-dark">Shop This Look</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Press Section -->
+    <div class="container py-5">
+        <h2 class="section-title">Featured In</h2>
+        <div class="row text-center">
+            <div class="col-md-2 col-4 mb-4">
+                <img src="images/vogue-logo.png" alt="Vogue" class="img-fluid" style="max-height: 50px;">
+            </div>
+            <div class="col-md-2 col-4 mb-4">
+                <img src="images/elle-logo.png" alt="Elle" class="img-fluid" style="max-height: 50px;">
+            </div>
+            <div class="col-md-2 col-4 mb-4">
+                <img src="images/gq-logo.png" alt="GQ" class="img-fluid" style="max-height: 50px;">
+            </div>
+            <div class="col-md-2 col-4 mb-4">
+                <img src="images/people-logo.png" alt="People" class="img-fluid" style="max-height: 50px;">
+            </div>
+            <div class="col-md-2 col-4 mb-4">
+                <img src="images/wwd-logo.png" alt="WWD" class="img-fluid" style="max-height: 50px;">
+            </div>
+            <div class="col-md-2 col-4 mb-4">
+                <img src="images/harpers-logo.png" alt="Harper's Bazaar" class="img-fluid" style="max-height: 50px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (consistent with your main site) -->
+    <footer class="bg-light text-center py-3">
+        <p>Follow us on:
+            <a href="https://www.instagram.com" class="btn btn-outline-dark"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" class="btn btn-outline-dark"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+        </p>
+        <p>&copy; 2025 MJ Couture. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
