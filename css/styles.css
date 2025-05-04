@@ -1,0 +1,179 @@
+/* ============================================= */
+/* GLOBAL STYLES */
+/* Background Colors */
+body {
+    background-color: #87CEEB; /* Sky Blue */
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    background-color: #FFFFFF; /* White */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #FF6F61; /* Coral Red */
+    color: white;
+    padding: 20px 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #333333; /* Dark Gray */
+}
+
+p {
+    color: #333333; /* Dark Gray */
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #FF6F61; /* Coral Red */
+    border-color: #FF6F61;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #E65A50; /* Darker Coral Red */
+    border-color: #E65A50;
+}
+
+/* Accent Colors */
+.accent-gold {
+    color: #FFD700; /* Gold */
+}
+
+.accent-pink {
+    color: #FFB6C1; /* Soft Pink */
+}
+
+/* Section Titles (used across multiple pages) */
+.section-title {
+    position: relative;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #333;
+    margin: 20px auto 0;
+}
+/* CELEBRITY PAGE  STYLES                */
+/* ============================================= */
+
+/* Hero Section for Celebrity Page */
+.celebrity-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/celeb-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Celebrity Cards Section */
+.celeb-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.celeb-card {
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.celeb-card:hover {
+    transform: translateY(-10px);
+}
+
+.celeb-img {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Fixed height for consistency */
+}
+
+.celeb-img img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.celeb-card:hover .celeb-img img {
+    transform: scale(1.05);
+}
+
+.celeb-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.celeb-info {
+    padding: 20px;
+    background-color: white;
+}
+
+.celeb-quote {
+    font-style: italic;
+    color: #666;
+    margin: 15px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.celeb-quote:before {
+    content: '"';
+    font-size: 50px;
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    color: #eee;
+    z-index: 0;
+}
+
+.celeb-name {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.celeb-title {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Press Logos Section */
+.press-logos {
+    padding: 40px 0;
+}
+
+.press-logo {
+    max-height: 50px;
+    width: auto;
+    margin: 0 auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    padding: 10px;
+}
+
+.press-logo:hover {
+    filter: grayscale(0%);
+}

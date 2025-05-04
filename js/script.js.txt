@@ -1,4 +1,0 @@
-// Add interactivity here (e.g., form validation, dynamic updates)
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('Website loaded');
-});
